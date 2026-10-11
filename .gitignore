@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+cookies*
+results/
+outputs/
+*.mp4
+*.wav
+*.mp3
+model.bin
