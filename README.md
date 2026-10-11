@@ -1,16 +1,28 @@
 # OpenInquire
 
-**给一个主题，带回有出处的判断。**
+**让 Agent 把中文互联网查深、读透。**
 
-中文互联网深度调研 Skill · 原帖 × 评论 × 视频 × 开源社区
+面向中文互联网的多模态调研 Skill · 原帖 × 评论 × 视频 × 开源代码
 
-**多家方法，一套工作流。近期实测，带日期的可用路线。**
+给出一个问题，Agent 负责跨平台找线索、读原帖、追评论、看视频，再把不同来源放在一起核对。你得到的是**有出处的判断、可复用的材料，以及下一步怎么做。**
 
-[看真实案例](examples/comments-change-the-answer.md) · [开始使用](docs/installation.md) · [工具对比](docs/comparison.md) · [验收记录](docs/verification.md)
+[开始使用](docs/installation.md) · [与同类工具对比](docs/comparison.md) · [真实案例](examples/comments-change-the-answer.md) · [近期实测](docs/verification.md)
 
-搜小红书、翻知乎、读公众号，再打开抖音和B站。收藏越来越多，问题却还没想明白：这些人说的是一回事吗？评论区有没有补充？这套方法现在还能用吗？
+一个选题，往往要搜小红书、翻知乎、读公众号，再打开抖音、B站和 GitHub。真正费力的是把这些材料接起来：评论有没有推翻原帖？视频里演示的方法能否复刻？已有项目做到哪一步，自己的想法还剩多少新东西？
 
-OpenInquire 把这段工作交给 Agent：围绕问题换关键词、选来源、读原帖、追评论、理解视频，再把不同人的经验整理成能使用的结论。**把反复找资料的精力，留给真正需要你的判断。**
+**把来回搜、翻、看、比较的工作交给 OpenInquire，把精力用在选题、验证和创造上。**
+
+## 同一个问题，向前多查几步
+
+| 你熟悉的工具 | 它主打的环节 | OpenInquire 接着帮你完成 |
+| --- | --- | --- |
+| [Agent Reach](https://github.com/Panniantong/Agent-Reach) | 配好渠道，让 Agent 能访问互联网 | 选哪些来源、追哪些评论、如何核对冲突说法，再交付主题结论与来源 |
+| [OpenCLI](https://github.com/jackwener/OpenCLI) | 把网站变成可调用的命令，复用已登录浏览器 | 围绕研究问题安排跨站搜索、深读、比较和整理，产出可以继续使用的调研材料 |
+| [last30days](https://github.com/mvanhorn/last30days-skill) | 从 Reddit、X、YouTube 等来源发现近期讨论并综合 | 补入小红书、知乎、公众号等中文站内经验，把近期线索与历史原文、视频过程及代码实现一起核对 |
+| [DyNote](https://github.com/Rimagination/dy-note) | 深入抖音视频、评论、账号与话题，形成学习资产 | 将视频中的观点带到其他平台求证，再对照文章、开发者讨论和公开实现 |
+| [Groundwork](https://github.com/SC-Airu/groundwork-skill) | 开工前扫描问题、现有方案和需求缺口 | 深入中文平台原帖与多模态材料，保留已读来源，让专题研究可以持续推进 |
+
+**跨平台发现、原帖与评论深读、视频理解、来源核对、结论交付——在一个调研入口里完成。** [详细对比与能力依据](docs/comparison.md)
 
 ## 把调研用在真正要做的事上
 
@@ -47,11 +59,11 @@ OpenInquire 把这段工作交给 Agent：围绕问题换关键词、选来源�
 
 **读视频里的过程。** 复用字幕，缺字幕时对已取得的媒体做本地转写；结合带时间戳的关键帧理解操作与画面。得到的是可以回到具体秒数的笔记，以及可复用的字幕、转写和画面材料。
 
-## 集各家之长，把可用方法接成流程
+## 调研开始前，先确认这条路今天能走
 
-平台接入、浏览器复用、近期检索、视频笔记、需求分析——开源社区已经积累了许多好方法。OpenInquire 将这些方法组合起来，让 Agent 按问题选择工具，完成搜集、深读、比较和整理。用户可以直接提出想解决的问题。[方法来源与工具对比](docs/comparison.md)
+每条渠道分别记录搜索、正文、评论和媒体的实测状态。运行时先用小样本确认当前入口，再扩大调研；某一来源暂时失效，已取得的材料保留，其他相关来源继续。
 
-**可行性也有时间。** 平台页面、接口和登录方式会变化，因此我们给路线附上实测日期，并分别记录搜索、正文、评论和媒体的读取结果。运行时先用小样本确认当前入口，再扩大调研；某一来源暂时失效，已取得的材料保留，其他相关来源继续。最近一轮验收：**2026-10-11**。[查看实测范围](docs/verification.md)
+最近一轮验收：**2026-10-11**。已验证技术社区的五类评论样本、21 个只读 MCP 工具的启动与列出、本地视频转写及抽帧。中文平台逐项记录当前可读层级，方便直接选择本次可用路线。[查看实测范围](docs/verification.md)
 
 ## 一个真实例子：后续回复改变了结论
 
@@ -94,8 +106,8 @@ flowchart LR
 关注【时间范围和重点】，先给主要判断，再附能回查的来源。
 ```
 
-## 站在开源工具的肩膀上
+## 开源致谢
 
-这个项目把平台接入、评论深读、视频处理和资料综合接到同一次调研里。它吸收了 [Agent Reach](https://github.com/Panniantong/Agent-Reach) 的渠道检查思路、[OpenCLI](https://github.com/jackwener/OpenCLI) 的浏览器会话复用、[last30days](https://github.com/mvanhorn/last30days-skill) 的近期主题发现、[dy-note](https://github.com/Rimagination/dy-note) 的素材与笔记分离，以及 [Groundwork](https://github.com/SC-Airu/groundwork-skill) 对实际需求和使用反馈的比较方法。[各自侧重点与我们的组合](docs/comparison.md)
+感谢 [Agent Reach](https://github.com/Panniantong/Agent-Reach)、[OpenCLI](https://github.com/jackwener/OpenCLI)、[last30days](https://github.com/mvanhorn/last30days-skill)、[DyNote](https://github.com/Rimagination/dy-note) 和 [Groundwork](https://github.com/SC-Airu/groundwork-skill) 对渠道检查、浏览器复用、近期发现、视频资产与需求研究的探索。设计参考、可选依赖和代码改编分别记录在[组件关系](docs/comparison.md#组件关系)中。
 
 原创代码与文档采用 [MIT](LICENSE)。视频助手中的 SRT 格式改编保留了 [上游 MIT 许可](skills/chinese-platform-research/scripts/LICENSE.video-transcriber)。其余独立工具按各自许可证安装。

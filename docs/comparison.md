@@ -1,18 +1,39 @@
-# 放在工具生态里看
+# OpenInquire 与同类工具
 
-OpenInquire 的交付是围绕主题形成的综合判断、来源和可继续使用的资料。平台连接、浏览器命令和媒体处理共同服务于这件事。
+**给出一个问题，完成从跨平台发现到有来源结论的一整轮调研。** OpenInquire 的优势在于把中文经验、评论上下文、视频过程和技术原始资料放在同一个问题下比较，直接服务于选型、选题、想法验证和既有工作比较。
 
-以下根据各项目在2026-10-11的公开README比较主打工作流；功能有交集，这是一张选用地图。
+## 从工具能力，到你要完成的事
 
-| 工具 | 主要交付与强项 | 我们吸收和组合的部分 |
-| --- | --- | --- |
-| [Agent Reach](https://github.com/Panniantong/Agent-Reach) | 为Agent配置多平台读取渠道，提供安装和状态检查 | 按渠道检查可用性，先用真实小样本确认读取层级 |
-| [OpenCLI](https://github.com/jackwener/OpenCLI) | 可复用的网站命令、适配器与已登录浏览器操作 | 优先复用日常浏览器，把站内操作纳入调研 |
-| [last30days](https://github.com/mvanhorn/last30days-skill) | 围绕近期主题收集社区讨论并综合 | 可选调用近期候选引擎，再读选中的原帖与评论；历史主题使用合适时段 |
-| [dy-note](https://github.com/Rimagination/dy-note) | 将抖音视频转成带素材依据的学习笔记 | 字幕/转写、画面材料、笔记分开保存，按学习目的读取 |
-| [Groundwork](https://github.com/SC-Airu/groundwork-skill) | 围绕需求、既有方案与实际反馈研究问题空间 | 比较人们怎样解决问题，以及宣传和实际使用中的差异 |
-| **OpenInquire** | **围绕一个主题，组合中文平台经验、评论讨论、视频过程与技术来源，形成可追溯的判断** | **提供调研编排、技术社区只读MCP、本地视频助手、精简候选索引与连续调研约定** |
+| 对比对象 | 官方文档中的主要能力 | 做专题调研时还要处理的工作 | OpenInquire 的对应能力 |
+| --- | --- | --- | --- |
+| [Agent Reach](https://github.com/Panniantong/Agent-Reach#为什么需要-agent-reach) | 多平台读取接入、安装配置、渠道诊断和后端选择 | 围绕问题组织证据，追踪作者修正，将不同来源整理成可用结论 | 主题拆解、评论深读、反例查找、引用与综合交付 |
+| [OpenCLI](https://github.com/jackwener/OpenCLI#opencli) | 通用浏览器操作、站点命令、适配器开发与已登录会话复用 | 决定查什么、读到什么程度、如何对照多站材料 | 用 Skill 驱动跨站研究，将网页操作接到问题分析、视频材料和来源笔记 |
+| [last30days](https://github.com/mvanhorn/last30days-skill#sources-scored-by-the-people) | 近期主题发现、评论与视频转写、社区信号评分和综合；公开来源表以 Reddit、X、YouTube 等为主 | 针对国内社区增加站内深读路线，将热点线索放回历史背景和实际实现中核对 | 小红书、知乎、公众号、抖音、B站专门路线；按主题选择时间范围，衔接代码、论文与原始资料 |
+| [DyNote](https://github.com/Rimagination/dy-note#核心特点) | 抖音视频、评论、账号与话题分析，转写、画面补证、资产复用 | 将抖音里的结论带到其他平台验证，形成跨来源的专题判断 | 围绕同一问题联查文章、问答、视频和开发者讨论；本地助手处理已取得的媒体 |
+| [Groundwork](https://github.com/SC-Airu/groundwork-skill#what-it-does) | 用英文搜索扫描问题空间，分析现有解法、使用方式、矛盾和缺口 | 继续进入中文站内材料，读取视频过程，并持续跟进已有研究 | 中文平台深读、多模态材料、原始来源与未决问题留存，下一轮继续推进 |
 
-既有工具可以成为调研的一部分。OpenInquire 在选择来源、跟进评论、比较矛盾和整理结果这几步上提供统一工作方式。当前直接封装的可选上游检索引擎是 last30days；其他项目的设计借鉴或现有工具复用，不表示整套代码被打包，也不表示自动安装。
+上述比较核对于 **2026-10-11**，依据各项目公开 README 的默认工作流。OpenInquire 的流程由 Skill、宿主 Agent 与已连接的工具共同执行；各渠道当前可读范围见[实测记录](verification.md)。
 
-实际渠道与测试范围见[验收记录](verification.md)，组件关系见[安装说明](installation.md)。
+## 你少做的五件事
+
+- **少安排一轮工具调用。** 给出研究目标后，由 Agent 选择来源、调整关键词、跟进线索并整理结果。
+- **少漏掉一段关键上下文。** 阅读评论中的适用条件、反例和作者更正，再回到原文或代码核对。
+- **少在文字与视频之间重新整理。** 字幕、转写、关键帧和时间点可以共同成为同一份调研的材料。
+- **少从头再查一次。** 保留已读来源、现有判断和未决问题，后续只补需要更新的部分。
+- **少踩一次过时入口。** 先确认当前入口，再读取内容；用带日期、分层级的实测记录选择路线。
+
+## 能力依据
+
+| 宣传中的能力 | 仓库中的实现与例子 |
+| --- | --- |
+| 跨平台发现、核对与结论交付 | [调研入口](../skills/chinese-platform-research/SKILL.md)、[专题研究与连续调研](../skills/chinese-platform-research/references/broad-research.md) |
+| 选型、选题、验证与复刻准备、查重查新 | [按目的选择调研方式](../skills/chinese-platform-research/references/use-cases.md) |
+| 评论深读与来源追溯 | [21 个只读工具](../mcp/server.py)、[评论改变结论的真实案例](../examples/comments-change-the-answer.md) |
+| 本地转写与关键帧材料 | [视频处理脚本](../skills/chinese-platform-research/scripts/read_video_local.py)、[视频学习流程](../skills/chinese-platform-research/references/douyin-video-learning.md) |
+| 精简候选、原始结果保留 | [近期检索助手](../skills/chinese-platform-research/scripts/research_recent.py)、[回归与实测结果](verification.md) |
+
+## 组件关系
+
+仓库提供自己的调研 Skill、21 个只读 MCP 工具与两段本地助手脚本。近期检索助手可调用另行安装的 last30days 引擎，目前封装范围为 HN/GitHub。浏览器、B站/公众号适配器与语音模型按任务连接，见[安装说明](installation.md)。
+
+Agent Reach 的渠道检查、OpenCLI 的浏览器复用、DyNote 的素材与笔记分离、Groundwork 的需求比较是工作流的设计参考；这些项目的整套代码未打包进本仓库。视频助手中 SRT 格式的改编保留[上游 MIT 许可](../skills/chinese-platform-research/scripts/LICENSE.video-transcriber)。
