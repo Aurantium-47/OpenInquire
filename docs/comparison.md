@@ -14,7 +14,7 @@
 
 上述比较核对于 **2026-10-11**，依据各项目公开 README 的默认工作流。OpenInquire 的流程由 Skill、宿主 Agent 与已连接的工具共同执行；各渠道当前可读范围见[实测记录](verification.md)。
 
-## 五项直接优势
+## OpenInquire 的特点
 
 - **来源广。** 中文平台与 GitHub、Hacker News、Stack Exchange、Reddit、Hugging Face 等海外来源同题联查，衔接软件包与产品目录。
 - **内容深。** 原帖、原图、评论、视频转写、关键帧、代码和版本信息分别读取，支持比较主张与实际实现。
