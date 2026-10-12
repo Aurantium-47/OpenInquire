@@ -1,3 +1,3 @@
 interface:
-  display_name: "跨平台深度调研"
-  short_description: "组合中文平台、社区讨论和视频材料，整理有出处的专题结论与实践经验"
+  display_name: "OpenInquire 跨平台调研"
+  short_description: "覆盖中外平台的原帖、评论、视频与开源资料，支持专题调研、选题与方案验证"
