@@ -80,7 +80,7 @@ OpenInquire 为这四个平台提供专门的搜索与读取流程：复用日�
 | 中文经验与长文 | 小红书原帖/图片、知乎回答/文章、公众号图文，以及可展开的讨论 | 日常登录态浏览器、公众号文章适配器 |
 | 视频与教程 | 抖音、B站的作品与学习材料；YouTube 视频候选 | 浏览器及 B站专用工具；YouTube MCP 检索；已取得媒体再做字幕/ASR与画面读取 |
 | 技术问答与社区 | Hacker News、Stack Exchange、V2EX 的问答/讨论/评论；Lobsters 的话题线索 | 内置只读 MCP；需要原文时继续跟进来源 |
-| 海外社交与产品 | Reddit、Bluesky、Mastodon、X、Product Hunt 的帖子、动态和产品线索 | 公开 API、Atom 或已授权 API；X API 需要独立凭据 |
+| 海外社交与产品 | Reddit、Bluesky、Mastodon、X、Product Hunt 的帖子、动态和产品线索 | 公开 API、Atom 或已授权 API；[X 浏览器与 API 路线](skills/chinese-platform-research/references/x-research.md)分开验收 |
 | 开源项目与实现 | GitHub 仓库、Issue/PR 评论与审查回复；GitLab、Gitee 项目 | 内置只读 MCP 发现与读讨论，代码和文档继续回到原仓库核对 |
 | 模型、数据和依赖 | Hugging Face 模型/数据集/Spaces；npm、PyPI、crates.io、Docker Hub 的版本与元数据 | 内置只读 MCP；模型卡和实现按任务进一步读取 |
 
@@ -90,7 +90,7 @@ OpenInquire 为这四个平台提供专门的搜索与读取流程：复用日�
 
 每条渠道分别记录搜索、正文、评论和媒体的实测状态。运行时先用小样本确认当前入口，再扩大调研；某一来源暂时失效，已取得的材料保留，其他相关来源继续。
 
-最近一轮验收：**2026-10-11**。已验证技术社区的五类评论样本、21 个只读 MCP 工具的启动与列出、本地视频转写及抽帧。中文平台逐项记录当前可读层级，方便直接选择本次可用路线。[查看实测范围](docs/verification.md)
+最近一轮增量验收：**2026-10-15**，X 网页搜索、原帖和一条回复可读，API 分页回归与 21 个只读工具列出通过；API 凭据未配置。此前已验证技术社区的五类评论样本、本地视频转写及抽帧。各平台按实际测试日期记录可读层级。[查看实测范围](docs/verification.md)
 
 ## 一个真实例子：后续回复改变了结论
 

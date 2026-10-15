@@ -424,8 +424,8 @@ def get_mastodon_public(instance: str = "fosstodon.org", limit: int = 10, local_
 
 
 @mcp.tool(annotations=READ_ONLY)
-def search_x(query: str, limit: int = 10) -> dict[str, Any]:
-    """Search recent X posts when an official X_BEARER_TOKEN is configured; never writes."""
+def search_x(query: str, limit: int = 10, next_token: str = "") -> dict[str, Any]:
+    """Read one page of X posts from the last 7 days; API page size is 10–100."""
     token = os.getenv("X_BEARER_TOKEN")
     fallback = f"https://x.com/search?q={quote_plus(query)}&src=typed_query&f=live"
     if not token:
@@ -435,10 +435,26 @@ def search_x(query: str, limit: int = 10) -> dict[str, Any]:
             "note": "Browser sign-in and official API credentials are separate; check browser availability independently.",
         }
     try:
-        data = _get_json("https://api.x.com/2/tweets/search/recent", params={
-            "query": query, "max_results": max(10, _limit(limit, 100)), "tweet.fields": "author_id,created_at,public_metrics,lang",
-        }, headers={"Authorization": f"Bearer {token}"})
-        return {"platform": "x", "ok": True, "items": data.get("data", [])[:_limit(limit, 100)], "meta": data.get("meta")}
+        page_size = max(10, _limit(limit, 100))
+        params = {
+            "query": query, "max_results": page_size,
+            "tweet.fields": "author_id,created_at,public_metrics,lang,conversation_id",
+            "expansions": "author_id", "user.fields": "username,name",
+        }
+        if next_token:
+            params["next_token"] = next_token
+        data = _get_json("https://api.x.com/2/tweets/search/recent", params=params,
+                         headers={"Authorization": f"Bearer {token}"})
+        authors = {user["id"]: user for user in data.get("includes", {}).get("users", [])}
+        items = []
+        for post in data.get("data", []):
+            author = authors.get(post.get("author_id"), {})
+            items.append({**post, "author": author,
+                          "url": f"https://x.com/i/web/status/{post['id']}"})
+        # Preserve the entire page: truncating to limit<10 would skip posts at the next cursor.
+        return {"platform": "x", "ok": "data" in data or "meta" in data,
+                "items": items, "meta": data.get("meta"), "errors": data.get("errors", []),
+                "page_size": page_size, "coverage": "recent_7_days", "browser_fallback": fallback}
     except Exception as exc:
         return _error("x", exc, fallback)
 

@@ -40,6 +40,8 @@ description: 围绕主题检索中外平台，深读原帖、评论、图文与�
 
 ## 技术问题路由
 
+涉及 X 时，读 [X 搜索、原帖与回复](references/x-research.md)，区分已登录浏览器与官方 API，按所需历史范围选择入口。
+
 科技、代码、开源项目、产品和行业动态调研时，先读 [技术平台入口](references/tech-platforms.md)，不要只依赖通用网页搜索。优先组合原始证据：GitHub/GitLab 查仓库、issue 和 release，Hugging Face 与包注册表查模型、依赖和版本，Stack Exchange 查可复现问答，Hacker News/Lobsters/Linux.do/V2EX/Reddit 查社区讨论，Product Hunt 查新品，YouTube/B站查演示或访谈。社区热度不是技术事实，关键结论仍回到官方文档、代码、论文或原作者内容核对。
 
 `platform_research` 只提供读取与检索，不发布、点赞、关注或私信。Reddit 和 Product Hunt 在无凭据时使用公开 Atom 订阅，官方凭据及相应审批完成后才提升到 OAuth/GraphQL；X 网页登录与开发者 API 计费权限独立。凭据不在聊天里粘贴。Linux.do 的匿名 Discourse JSON 接口曾返回 403，但 2026-09-23 日常 Edge 登录页与部分公开帖网页读取可用，登录后站内搜索尚待验收。限域搜索用于补充发现，再打开可访问的原帖；不要将局部失败写成全站永远不可读，也不要绕过挑战假装 API 已连通。
